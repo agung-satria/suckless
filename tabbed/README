@@ -1,0 +1,38 @@
+sudo cp tabbed.desktop /usr/share/applications/
+add to keybind:
+cinnamon:
+tabbed -r 2 -g 1300x750 st -w ''
+st:
+tabbed -r 2 st -w ''
+
+tabbed - generic tabbed interface
+=================================
+tabbed is a simple tabbed X window container.
+
+Requirements
+------------
+In order to build tabbed you need the Xlib header files.
+
+Installation
+------------
+Edit config.mk to match your local setup (tabbed is installed into
+the /usr/local namespace by default).
+
+Afterwards enter the following command to build and install tabbed
+(if necessary as root):
+
+    make clean install
+
+Running tabbed
+--------------
+See the man page for details.
+
+Patches
+-------
+alpha.diff
+tabbed-autohide-20201222-dabf6a2.diff
+tabbed-xresources-20210317-dabf6a2.diff
+
+Last implemented commit
+-----------------------
+2020-05-12 15:09	Fixed crash when window height was less or equal to bar height	mikau

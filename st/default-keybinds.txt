@@ -1,0 +1,26 @@
+ctrl + shift + c        Copy  
+
+ctrl + shift + v        Paste 
+
+right click on the terminal ( will paste the copied thing ) 
+
+(Zoom)
+alt  + comma            Zoom in 
+
+alt  + .                Zoom out 
+
+alt  + g                Reset Zoom
+
+
+(Transparency)
+alt  + s                Increase Transparency
+
+alt  + a                Decrease Transparency
+
+alt  + m                Reset Transparency
+
+
+alt + k                 scroll down 
+alt + j                 scroll up
+
+mod + shift + enter    open a new terminal with same cwd ( current working directory )
