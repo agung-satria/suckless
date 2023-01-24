@@ -68,13 +68,13 @@ typedef struct {
     const char *name;
     const void *cmd;
 } Sp;
-const char *spcmd1[] = {"st", "-n", "spterm", "-g", "100x25", NULL };
+const char *spcmd1[] = {"st", "-n", "spterm", "-g", "100x30", NULL };
 const char *spcmd2[] = {"st", "-n", "spcalc", "-g", "31x17", "bc", "-lq", NULL };
-const char *spcmd3[] = {"st", "-n", "spncmpcpp", "-g", "100x25", "-e", "ncmpcpp", NULL };
-const char *spcmd4[] = {"st", "-n", "spcalcurse", "-g", "100x25", "-e", "calcurse", NULL };
-const char *spcmd5[] = {"st", "-n", "spnmtui", "-g", "100x25", "-e", "nmtui", NULL };
-const char *spcmd6[] = {"st", "-n", "spranger", "-g", "100x25", "-e", "ranger", NULL };
-const char *spcmd7[] = {"st", "-n", "splf", "-g", "100x25", "-e", "lfub", NULL };
+const char *spcmd3[] = {"st", "-n", "spncmpcpp", "-g", "100x30", "-e", "ncmpcpp", NULL };
+const char *spcmd4[] = {"st", "-n", "spcalcurse", "-g", "100x30", "-e", "calcurse", NULL };
+const char *spcmd5[] = {"st", "-n", "spnmtui", "-g", "100x30", "-e", "nmtui", NULL };
+const char *spcmd6[] = {"st", "-n", "spranger", "-g", "100x30", "-e", "ranger", NULL };
+const char *spcmd7[] = {"st", "-n", "splf", "-g", "100x30", "-e", "lfub", NULL };
 static Sp scratchpads[] = {
 
     /* name          cmd  */
