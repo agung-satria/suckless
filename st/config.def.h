@@ -6,11 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font = "Hack Nerd Font :pixelsize=22:antialias=true:autohint=true";
-static char *font2[] = { "Hack Nerd Font :pixelsize=22:antialias=true:autohint=true",
-  "Noto Color Emoji:pixelsize=22:antialias=true:autohint=true",
-  "JoyPixels:size=22:antialias=true:autohint=true",
-  "Material:size=13:autohint=true",
-  "Material Design Icons-Regular:size=13:autohint=true"};
+static char *font2[] = { "Hack Nerd Font :pixelsize=22:antialias=true:autohint=true"};
 static int borderpx = 2;
 
 /*
@@ -155,30 +151,30 @@ static const char *colorname[] = {
 /* ^^^^^^^^^^^^^^^^^^^^^^^^ gruvbox color ^^^^^^^^^^^^^^^^^^^^^^^ */
 	/* "#282828", /1* hard contrast: #1d2021 / soft contrast: #32302f *1/ */
 	// "#14191e", /* hard contrast: #1d2021 / soft contrast: #32302f */
-	"#0E0D0D", /* hard contrast: #1d2021 / soft contrast: #32302f */
-	"#cc241d",
-	"#98971a",
-	"#d79921",
-	"#458588",
-	"#b16286",
-	"#689d6a",
-	"#a89984",
-	"#928374",
-	"#fb4934",
-	"#b8bb26",
-	"#fabd2f",
-	"#83a598",
-	"#d3869b",
-	"#8ec07c",
-	"#ebdbb2",
-	[255] = 0,
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#add8e6", /* 256 -> cursor */
-	"#555555", /* 257 -> rev cursor*/
-	// "#14191e", /* 258 -> bg */
-	"#0e0d0d", /* 258 -> bg */
-	"#ebdbb2", /* 259 -> fg */
-};
+//	"#0E0D0D", /* hard contrast: #1d2021 / soft contrast: #32302f */
+//	"#cc241d",
+//	"#98971a",
+//	"#d79921",
+//	"#458588",
+//	"#b16286",
+//	"#689d6a",
+//	"#a89984",
+//	"#928374",
+//	"#fb4934",
+//	"#b8bb26",
+//	"#fabd2f",
+//	"#83a598",
+//	"#d3869b",
+//	"#8ec07c",
+//	"#ebdbb2",
+//	[255] = 0,
+//	/* more colors can be added after 255 to use with DefaultXX */
+//	"#add8e6", /* 256 -> cursor */
+//	"#555555", /* 257 -> rev cursor*/
+//	// "#14191e", /* 258 -> bg */
+//	"#0e0d0d", /* 258 -> bg */
+//	"#ebdbb2", /* 259 -> fg */
+//};
 /* ________________________ gruvbox color _______________________ */
 
 /* ^^^^^^^^^^^^^^^^^^^^^^^^ onedark color ^^^^^^^^^^^^^^^^^^^^^^^ */
@@ -214,29 +210,30 @@ static const char *colorname[] = {
 /* ________________________ onedark color _______________________ */
 
 /* ^^^^^^^^^^^^^^^^^^^^^^^^ decay color ^^^^^^^^^^^^^^^^^^^^^^^ */
-//	"#1c252c", /* hard contrast: #1d2021 / soft contrast: #32302f */
-//	"#e05f65",
-//	"#78dba9",
-//	"#f1cf8a",
-//	"#70a5eb",
-//	"#c68aee",
-//	"#74bee9",
-//	"#ABB2BF",
-//	"#384148",
-//	"#fc7b81",
-//	"#94f7c5",
-//	"#ffeba6",
-//	"#8cc1ff",
-//	"#e2a6ff",
-//	"#90daff",
-//	"#dee1e6",
-//	[255] = 0,
-//	/* more colors can be added after 255 to use with DefaultXX */
-//	"#add8e6", /* 256 -> cursor */
-//	"#555555", /* 257 -> rev cursor*/
-// 	"#0D1017", /* 258 -> bg for decay*/
-//	"#c0caf5", /* 259 -> fg */
-//};
+	"#1c252c", /* hard contrast: #1d2021 / soft contrast: #32302f */
+	"#e05f65",
+	"#78dba9",
+	"#f1cf8a",
+	"#70a5eb",
+	"#c68aee",
+	"#74bee9",
+	"#ABB2BF",
+	"#384148",
+	"#fc7b81",
+	"#94f7c5",
+	"#ffeba6",
+	"#8cc1ff",
+	"#e2a6ff",
+	"#90daff",
+	"#dee1e6",
+	[255] = 0,
+	/* more colors can be added after 255 to use with DefaultXX */
+	"#add8e6", /* 256 -> cursor */
+	"#555555", /* 257 -> rev cursor*/
+  "#0e0d0d", /* 258 -> bg for gruvbox */
+ 	// "#0D1017", /* 258 -> bg for decay*/
+	"#c0caf5", /* 259 -> fg */
+};
 /* ________________________ decay color _______________________ */
 /*
  * Default colors (colorname index)
