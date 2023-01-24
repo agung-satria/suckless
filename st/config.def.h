@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Hack Nerd Font :pixelsize=22:antialias=true:autohint=true";
-static char *font2[] = { "Hack Nerd Font :pixelsize=22:antialias=true:autohint=true"};
+static char *font = "Hack Nerd Font :pixelsize=21:antialias=true:autohint=true";
+static char *font2[] = { "NotoColorEmoji:pixelsize=21:antialias=true:autohint=true" };
 static int borderpx = 2;
 
 /*
@@ -402,9 +402,10 @@ static Shortcut shortcuts[] = {
   // { TERMMOD,              XK_J,           zoom,           {.f = -1} },
   // { TERMMOD,              XK_U,           zoom,           {.f = +2} },
   // { TERMMOD,              XK_D,           zoom,           {.f = -2} },
-  { MODKEY,               XK_l,           externalpipe,   {.v = openurlcmd } },
-  { MODKEY,               XK_y,           externalpipe,   {.v = copyurlcmd } },
-  { MODKEY,               XK_o,           externalpipe,   {.v = copyoutput } },
+  { MODKEY,               XK_w,           externalpipe,   {.v = openurlcmd } },
+  // { MODKEY,               XK_y,           externalpipe,   {.v = copyurlcmd } },
+  { MODKEY,               XK_e,           externalpipe,   {.v = copyurlcmd } },
+  { MODKEY,               XK_l,           externalpipe,   {.v = copyoutput } },
   { TERMMOD,              XK_Return,      newterm,        {.i =  0} },
 
 };
