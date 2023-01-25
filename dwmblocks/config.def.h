@@ -5,7 +5,6 @@ static const Block blocks[] = {
 	{"",   "sd-battery",	          5,		        3},
 	{"",   "sd-nettraf",           5,		      2},
 	{"",   "sd-pacpackages",	      5,		      7},
-	// {"",   "sd-cpubars",            5,		      5},
 	{"",   "sd-internet",	          5,		      22},
   {"",   "sd-clock",	            60,		      10},
 

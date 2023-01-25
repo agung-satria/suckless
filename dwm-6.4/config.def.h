@@ -11,13 +11,13 @@ static const unsigned int gappih    = 14;       /* horiz inner gap between windo
 static const unsigned int gappiv    = 14;       /* vert inner gap between windows */
 static const unsigned int gappoh    = 18;       /* horiz outer gap between windows and screen edge */
 static const unsigned int gappov    = 28;       /* vert outer gap between windows and screen edge */
-static       int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
+static       int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]        = {"SF Pro Display:weight=Medium:size=14:antialias=true:autohint=true",
   "Hack Nerd Font:style:medium:size=14:autohint=true",
   "JoyPixels:size=12:antialias=true:autohint=true",
-  "Noto Color Emoji:pixelsize=14:antialias=true:autohint=true"};
+  "Noto Color Emoji:pixelsize=12:antialias=true:autohint=true"};
 
 static const char dmenufont[]     = "SF Pro Display:weight=Medium:size=14:antialias=true:autohint=true";
 
@@ -190,13 +190,21 @@ static const Key keys[] = {
   { MODKEY|ALTKEY,		    	XK_bracketleft,	    	spawn,		SHCMD("mpc -p 6601 seek 0%") },
   { MODKEY|ALTKEY,		    	XK_bracketright,	spawn,		SHCMD("mpc -p 6601 random") },
 
+  // Apps and scripts
+
+  { MODKEY,			                  XK_w,		   spawn,		SHCMD("$BROWSER") },
+  { MODKEY|ShiftMask,		          XK_w,		   spawn,		SHCMD("$BROWSER --private-window") },
+  { MODKEY|ShiftMask,		          XK_e,		   spawn,		SHCMD("$FMGR ~/") },
+
   { MODKEY,				    XK_y,        spawn,		SHCMD("xcpc") },
   { MODKEY,				    XK_Escape,        spawn,		SHCMD("sysact") },
+  { MODKEY,           XK_BackSpace,     	spawn,		SHCMD("slock") },
   { MODKEY,				    XK_grave,        spawn,		SHCMD("dmenuunicode") },
   { MODKEY,				    XK_F3,        spawn,		SHCMD("dmenuhandler") },
   { MODKEY,				    XK_v,        spawn,		SHCMD("dmenurecord") },
   { MODKEY,			      XK_F4,		      spawn,		SHCMD(TERMINAL " -c float-st -g 95x28 pulsemixer") },
   { MODKEY,			      XK_F11,		spawn,		SHCMD("mpv --untimed --no-cache --no-osc --no-input-default-bindings --profile=low-latency --input-conf=/dev/null --title=webcam $(ls /dev/video[0,2,4,6,8] | tail -n 1)") },
+  { MODKEY|ControlMask, XK_Return,  spawn,		SHCMD("$TERMINAL -e runtmux") },
 
   { 0,			       XK_Print,	spawn,		SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png && notify-send '🖼️ Screenshot saved'") },
   { ShiftMask,	       	       XK_Print,	spawn,		SHCMD("maimpick") },
