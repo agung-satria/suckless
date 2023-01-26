@@ -25,12 +25,11 @@ static const char normbgcolor[]     = "#140E0A";
 static const char normbordercolor[] = "#3E4141";
 static const char normfgcolor[]     = "#B4B9BA";
 static const char selfgcolor[]      = "#F2F2F2";
-static const char selbordercolor[]  = "#FEB070";
 static const char selbgcolor[]      = "#73C1D3";
 static const char *colors[][3]      = {
   /*               fg         bg         border   */
   [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
-  [SchemeSel]  = { normbgcolor, selbgcolor,  selbgcolor  },
+  [SchemeSel]  = { selbgcolor, normbordercolor,  selbgcolor  },
   [SchemeTitle]  = { selfgcolor, normbgcolor,  normbordercolor  },
 };
 
@@ -66,7 +65,9 @@ static const Rule rules[] = {
 	/* class      instance    title   tags mask     isterminal  isfloating iscentered   noswallow  monitor */
   { "Gimp",	    NULL,			  NULL,		  1 << 5,	    	   0,         0,        0,            0,		   -1 },
   { "Yad",	    NULL,			  NULL,		  0,			         0,        -1,        0,            1,		   -1 },
-  { "Firefox",  NULL,			  NULL,		  1 << 8,	    	   0,         0,        0,			      0,       -1 },
+  { "Arandr",	  NULL,			  NULL,		  0,			         0,        -1,        0,            1,		   -1 },
+  { "Galculator",NULL,			NULL,		  0,			         0,        -1,        0,            1,		   -1 },
+  { "Dragon-drop",NULL,		  NULL,		  0,			         0,        -1,        0,            1,		   -1 },
   { "float-st", NULL,       NULL,     0,               1,         1,        1,            0,       -1 },
 	{ "St",       NULL,       NULL,     0,               1,         0,        1,            0,       -1 },
 
@@ -116,7 +117,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", normbgcolor, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", selfgcolor, "-sb", normbordercolor, "-sf", selbgcolor, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 #include <X11/XF86keysym.h>
@@ -153,12 +154,13 @@ static const Key keys[] = {
   { MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[1]} },
   { MODKEY|ShiftMask,             XK_d,      setlayout,      {.v = &layouts[2]} },
   { MODKEY|ControlMask,           XK_s,      setlayout,      {.v = &layouts[3]} },
-  { MODKEY|ControlMask,           XK_m,      setlayout,      {.v = &layouts[4]} },
+  { MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[4]} },
   { MODKEY,                       XK_u,      setlayout,      {.v = &layouts[5]} },
   { MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[6]} },
   { MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[7]} },
   { MODKEY,                       XK_semicolon,  setlayout,      {0} },
   { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+	{ MODKEY,                       XK_f,      togglefullscreen, {0} },
   { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
   { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
   { MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
@@ -196,6 +198,7 @@ static const Key keys[] = {
   { MODKEY,			                  XK_w,		   spawn,		SHCMD("$BROWSER") },
   { MODKEY|ShiftMask,		          XK_w,		   spawn,		SHCMD("$BROWSER --private-window") },
   { MODKEY|ShiftMask,		          XK_e,		   spawn,		SHCMD("$FMGR ~/") },
+  { MODKEY|ShiftMask,		          XK_apostrophe,spawn,SHCMD("galculator") },
 
   { MODKEY,				    XK_y,        spawn,		SHCMD("xcpc") },
   { MODKEY,				    XK_Escape,        spawn,		SHCMD("sysact") },
@@ -203,7 +206,8 @@ static const Key keys[] = {
   { MODKEY,				    XK_grave,        spawn,		SHCMD("dmenuunicode") },
   { MODKEY,				    XK_F3,        spawn,		SHCMD("dmenuhandler") },
   { MODKEY,				    XK_v,        spawn,		SHCMD("dmenurecord") },
-  { MODKEY,			      XK_F4,		      spawn,		SHCMD(TERMINAL " -c float-st -g 95x28 pulsemixer") },
+  { MODKEY,			      XK_F4,		      spawn,		SHCMD(TERMINAL " -c float-st -g 95x28 -e pulsemixer") },
+  { MODKEY|ShiftMask,	XK_r,        spawn,	    SHCMD(TERMINAL " -c float-st -g 95x28 -e gotop") },
   { MODKEY,			      XK_F11,		spawn,		SHCMD("mpv --untimed --no-cache --no-osc --no-input-default-bindings --profile=low-latency --input-conf=/dev/null --title=webcam $(ls /dev/video[0,2,4,6,8] | tail -n 1)") },
   { MODKEY|ControlMask, XK_Return,  spawn,		SHCMD("$TERMINAL -e runtmux") },
 
