@@ -216,6 +216,10 @@ static const Key keys[] = {
   { ControlMask,         	       XK_Print,	spawn,		SHCMD("maim | xclip -selection clipboard -t image/png && notify-send '📋 Screenshot copied to clipboard'") },
   { MODKEY|ShiftMask,	 	       XK_s,        spawn,	    SHCMD("maim -s | xclip -selection clipboard -t image/png && notify-send '📋 Screenshot area copied to clipboard'") },
 
+  { MODKEY|ShiftMask, XK_i,   spawn, SHCMD("xdotool type $(grep -v '^#' $HOME/.local/share/bookmarks | dmenu -i -l 50 | cut -d' ' -f1)")},
+  { MODKEY|ShiftMask, XK_b,   spawn, SHCMD(TERMINAL " -e $EDITOR $HOME/.local/share/bookmarks")},
+  { MODKEY|ControlMask, XK_b,   spawn, SHCMD(TERMINAL "bm-append")},
+
 
   TAGKEYS(                        XK_1,                      0)
   TAGKEYS(                        XK_2,                      1)
