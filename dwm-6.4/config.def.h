@@ -48,6 +48,7 @@ const char *spcmd3[] = {"st", "-n", "spmus", "-g", "95x28", "-e", "ncmpcpp", NUL
 const char *spcmd4[] = {"st", "-n", "spcalz", "-g", "95x28", "-e", "calcurse", NULL };
 const char *spcmd5[] = {"st", "-n", "spnmt", "-g", "95x28", "-e", "nmtui", NULL };
 const char *spcmd6[] = {"st", "-n", "spcalc", "-f", "monospace:size=16", "-g", "35x20", "-e", "bc", "-lq", NULL };
+const char *spcmd7[] = {"crow", NULL };
 
 static Sp scratchpads[] = {
   /* name          cmd  */
@@ -57,6 +58,7 @@ static Sp scratchpads[] = {
   {"spcalz",      spcmd4},
   {"spnmt",       spcmd5},
   {"spcalc",      spcmd6},
+  {"spcrow",      spcmd7},
 };
 
 /* tagging */
@@ -84,6 +86,7 @@ static const Rule rules[] = {
   { NULL,		    "spcalz",		NULL,		  SPTAG(3),   	   1,         1,        0,            1,			 -1 },
   { NULL,		    "spnmt",		NULL,		  SPTAG(4),   	   1,         1,        0,            1,			 -1 },
   { NULL,		    "spcalc",		NULL,		  SPTAG(5),   	   1,         1,        0,            1,			 -1 },
+  { NULL,		    "crow",     NULL,     SPTAG(6),   	   1,         1,        0,            1,			 -1 },
 };
 
 /* layout(s) */
@@ -181,6 +184,7 @@ static const Key keys[] = {
   { MODKEY,             XK_c,  togglescratch,  {.ui = 3 } },
   { MODKEY|ControlMask, XK_n,  togglescratch,  {.ui = 4 } },
   { MODKEY,             XK_apostrophe,  togglescratch,  {.ui = 5 } },
+  { MODKEY,             XK_slash,  togglescratch,  {.ui = 6 } },
 
   /* volume and brightness */
   { 0,  XF86XK_AudioMute,           spawn, SHCMD("pamixer -t; pkill -RTMIN+1 dwmblocks") },
@@ -208,6 +212,7 @@ static const Key keys[] = {
   { MODKEY|ShiftMask,		          XK_e,		   spawn,		SHCMD("$FMGR ~/") },
   { MODKEY|ShiftMask,		          XK_apostrophe,spawn,SHCMD("galculator") },
 
+  { MODKEY,				    XK_r,        spawn,		SHCMD("rofi -show drun") },
   { MODKEY,				    XK_y,        spawn,		SHCMD("xcpc") },
   { MODKEY,				    XK_Escape,        spawn,		SHCMD("sysact") },
   { MODKEY,           XK_BackSpace,     	spawn,		SHCMD("slock") },
