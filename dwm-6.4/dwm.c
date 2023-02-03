@@ -1129,6 +1129,10 @@ focusmon(const Arg *arg)
   unfocus(selmon->sel, 0);
   selmon = m;
   focus(NULL);
+// cursor warp monitor only
+	if (selmon->sel)
+	XWarpPointer(dpy, None, selmon->sel->win, 0, 0, 0, 0, selmon->sel->w/2, selmon->sel->h/2);
+// cursor warp monitor only
 }
 
   void
