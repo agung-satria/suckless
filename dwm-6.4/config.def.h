@@ -3,6 +3,14 @@
 #define TERMINAL "st"
 #define TERMCLASS "St"
 
+/* alt-tab configuration */
+static const unsigned int tabModKey 		= 0x40;	/* if this key is hold the alt-tab functionality stays acitve. This key must be the same as key that is used to active functin altTabStart `*/
+static const unsigned int tabCycleKey 		= 0x17;	/* if this key is hit the alt-tab program moves one position forward in clients stack. This key must be the same as key that is used to active functin altTabStart */
+static const unsigned int tabPosY 			= 1;	/* tab position on Y axis, 0 = bottom, 1 = center, 2 = top */
+static const unsigned int tabPosX 			= 1;	/* tab position on X axis, 0 = left, 1 = center, 2 = right */
+static const unsigned int maxWTab 			= 600;	/* tab menu width */
+static const unsigned int maxHTab 			= 200;	/* tab menu height */
+
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -195,6 +203,7 @@ static const Key keys[] = {
   { MODKEY,                       XK_period, focusmon,       {.i = +1 } },
   { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
   { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ ALTKEY,             XK_Tab,    altTabStart,	   {0} },
   { MODKEY|ShiftMask,   XK_Return,  	   togglescratch,  {.ui = 0 } },
   { MODKEY,             XK_e,  	   togglescratch,  {.ui = 1 } },
   { MODKEY,             XK_m,	   togglescratch,  {.ui = 2 } },
@@ -235,6 +244,7 @@ static const Key keys[] = {
   // { MODKEY,           XK_BackSpace,     	spawn,		SHCMD("slock") },
   { MODKEY,           XK_BackSpace,     	spawn,		SHCMD("betterlockscreen -l") },
   { MODKEY,				    XK_grave,        spawn,		SHCMD("dmenuunicode") },
+  { MODKEY,				    XK_F1,        spawn,		SHCMD("dmenutodo") }, // type something to create new, select todo list to remove list
   { MODKEY,				    XK_F3,        spawn,		SHCMD("dmenuhandler") },
   { MODKEY,				    XK_v,        spawn,		SHCMD("dmenurecord") },
   { MODKEY,				    XK_p,        spawn,		SHCMD("arandr") },
@@ -248,10 +258,15 @@ static const Key keys[] = {
   { ControlMask,         	       XK_Print,	spawn,		SHCMD("maim | xclip -selection clipboard -t image/png && notify-send '📋 Screenshot copied to clipboard'") },
   { MODKEY|ShiftMask,	 	       XK_s,        spawn,	    SHCMD("maim -s | xclip -selection clipboard -t image/png && notify-send '📋 Screenshot area copied to clipboard'") },
 
-  { MODKEY|ShiftMask, XK_i,   spawn, SHCMD("xdotool type $(grep -v '^#' $HOME/.local/share/bookmarks | dmenu -i -l 50 | cut -d' ' -f1)")},
-  { MODKEY|ShiftMask, XK_b,   spawn, SHCMD(TERMINAL " -e $EDITOR $HOME/.local/share/bookmarks")},
-  { MODKEY|ControlMask, XK_b,   spawn, SHCMD(TERMINAL "bm-append")},
+  // { MODKEY|ShiftMask, XK_i,   spawn, SHCMD("xdotool type $(grep -v '^#' $HOME/.local/share/bookmarks | dmenu -i -l 50 | cut -d' ' -f1)")},
+  // { MODKEY|ShiftMask, XK_b,   spawn, SHCMD(TERMINAL " -e $EDITOR $HOME/.local/share/bookmarks")},
+  // { MODKEY|ControlMask, XK_b,   spawn, SHCMD(TERMINAL "bm-append")},
 
+  // see 'bmks help'
+  // sc: https://tools.suckless.org/dmenu/scripts/
+  { MODKEY|ShiftMask,   XK_i,   spawn, SHCMD("bmks")}, // select urls
+  { MODKEY|ControlMask, XK_i,   spawn, SHCMD("bmks del")}, // delete urls
+  { MODKEY|ShiftMask, XK_b,   spawn, SHCMD(TERMINAL " -e $EDITOR $HOME/.bmks/urls")}, // open urls
 
   TAGKEYS(                        XK_1,                      0)
   TAGKEYS(                        XK_2,                      1)
