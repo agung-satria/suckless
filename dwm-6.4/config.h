@@ -146,6 +146,7 @@ static const Key keys[] = {
   /* modifier                     key        function        argument */
   { MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
   { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+  { ALTKEY,                       XK_Return, spawn,		        SHCMD("kitty") }, // kitty or alacritty
   { MODKEY,                       XK_b,      togglebar,      {0} },
   { MODKEY,                       XK_g,      togglesystray,  {0} },
   { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
